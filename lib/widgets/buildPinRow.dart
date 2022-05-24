@@ -122,9 +122,11 @@ verifyPass(String strPin) {
   int pass = date * month * year;
   // int pass = 23456;
   String passCode = "$pass";
-  if (passCode.length != 6) {
+
+  for (int i = 0; i < 6; i++) {
     passCode = "0$passCode";
   }
+
   print(pass);
   if (pass == int.parse(strPin)) {
     Navigator.of(widgetContext!).pop();
