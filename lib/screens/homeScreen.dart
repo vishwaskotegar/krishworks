@@ -4,6 +4,8 @@ import 'package:krishworks/utils/colors.dart';
 import 'package:krishworks/widgets/buildPinRow.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../widgets/buildNumPad.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -53,17 +55,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             onTap: () {
               showDialog(
-                barrierDismissible: true,
+                // barrierDismissible: true,
                 context: context,
-                builder: (_) => AlertDialog(
-                  title: Center(
-                    child: Text(
-                      "Developer Passcode",
-                      style: GoogleFonts.poppins(textStyle: style)
-                      .copyWith(fontSize: 22),
+                builder: (_) => Scaffold(
+                  backgroundColor: Colors.transparent,
+                  bottomNavigationBar: BuildNumPad(),
+                  body: AlertDialog(
+                    content: BuildPinRow(),
+                    title: Center(
+                      child: Text(
+                        "Developer Passcode",
+                        style: GoogleFonts.poppins(textStyle: style)
+                        .copyWith(fontSize: 22),
+                      ),
                     ),
+                    // actions: const [,],
                   ),
-                  actions: const [BuildPinRow(),],
                 ),
               );
             },
@@ -129,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        // bottomNavigationBar: const BuildNumpad() ,
+        // bottomNavigationBar: BuildNumPad() ,
       ),
     );
   }

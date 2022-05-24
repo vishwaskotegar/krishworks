@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:krishworks/utils/colors.dart';
 
 class KeyBoardNumber extends StatelessWidget {
   final int n;
@@ -12,17 +13,18 @@ class KeyBoardNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60,
-      height: 60,
+      width: 50,
+      height: 40,
       decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
+        // shape: BoxShape.rectangle,
         color: Colors.transparent,
       ),
       alignment: Alignment.center,
-      child: MaterialButton(
-        padding: EdgeInsets.all(8.0),
+      child: ElevatedButton(
         onPressed: onPressed,
-        height: 90.0,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade800),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
         child: Text(
           "$n",
           textAlign: TextAlign.center,
